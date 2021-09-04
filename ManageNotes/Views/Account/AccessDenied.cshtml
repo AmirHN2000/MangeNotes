@@ -1,0 +1,53 @@
+﻿@using ManageNotes.Data
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
+    <style>
+        body{
+        font-family: 'Samim', Arial, sans-serif;
+        text-align: center;
+        background-color: white;
+        }
+        header{
+        background-color: #e2e3e5 !important;
+        }
+    </style>
+    @{
+        Layout = "";
+    }
+</head>
+
+<body>
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="jumbotron">
+        <h3 class="text text-danger">شما به این قسمت دسترسی ندارید</h3>
+        <br>
+        @{
+            if (User.Identity.IsAuthenticated && User.IsInRole(TypeAccountEnum.Admin.GetNumberWithString()))
+            {
+                <a class="btn btn-danger" asp-controller="Admins" asp-action="IndexAdmins">بازگشت به برنامه</a>
+            }
+            else if(User.Identity.IsAuthenticated && User.IsInRole(TypeAccountEnum.Member.GetNumberWithString()))
+            {
+                <a class="btn btn-danger" asp-controller="Note" asp-action="NoteIndex">بازگشت به برنامه</a>
+            }
+            else
+            {
+                <a class="btn btn-danger" asp-controller="Home" asp-action="Index">بازگشت به برنامه</a>
+            }
+        }
+    </div>
+</div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

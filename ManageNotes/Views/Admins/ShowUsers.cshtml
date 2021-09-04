@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Show Users";
+    Layout = "_LayoutAdmins";
+}
+
+<div id="mydiv2">
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <a class="btn btn-success" asp-controller="Admins" asp-action="ExportUsersOrAdmins" asp-route-type="user" target="_blank">
+                <span class="oi oi-data-transfer-download"></span>  دریافت فایل کاربران</a>
+        </div>
+    </div>
+    
+    <table id="mytable2" class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>شماره</th>
+            <th>نام کاربری</th>
+            <th>عملیات</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+</div>
+
+@section CSSStyle
+{
+    <link rel="stylesheet" href="~/lib/jquery-datatable/datatables.min.css">
+    <link rel="stylesheet" href="~/lib/jQuery-confirm/jquery-confirm.min.css">
+}
+
+@section Scripts
+{
+    <script src="~/lib/jquery-datatable/datatables.min.js"></script>
+    <script src="~/lib/jQuery-confirm/jquery-confirm.min.js"></script>
+
+    <script>
+    var table=$('#mytable2').DataTable( {
+                        "responsive": true,
+                        "processing": true,
+                        "serverSide": true,
+                        "orderMulti": false,
+                        "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                        "ajax": {
+                             "url": "@Url.Action("GetUsersOrAdmin", "Admins")",
+                             "type": "GET",
+                             "data": {"type": "user"},
+                             "dataType": "json"
+                         },
+                        "columns":[
+                             {"data": "number"},
+                             {"data": "userName"},
+                             {"data": "id",
+                             render:function (data,type,row){
+                                 return `
+                                 <a href='@Url.Action("ShowNotes", "Note")/${data}' class="btn btn-primary"><span class="oi oi-eye"></span>  نمایش یادداشت ها</a>
+                                 <a href='@Url.Action("EditProfile", "User")/${data}' class="btn btn-warning"><span class="oi oi-pencil"></span>  ویرایش کاربر</a>
+                                 <button data-id="${data}" class="btn btn-danger btn-delete2"><span class="oi oi-trash"></span>  حذف کاربر</button>
+                                 `;
+                                 }
+                             }
+                             ] ,
+                        "language": {
+                                "url": "/lib/jquery-datatable/Persian.json"
+                            }
+                    } );
+    $('#mydiv2').on('click', ".btn-delete2", function (){
+        var id=$(this).data("id");
+                        
+                        $.confirm({
+                            title: 'حذف حساب کاربر',
+                            content: 'آیا از حذف حساب کاربر مطمئن هستید؟',
+                            type: 'red',
+                            typeAnimated: true,
+                            buttons: {
+                                confirm: {
+                                    text: 'بله',
+                                    btnClass: 'btn-red',
+                                    keys: ['enter', 'shift'],
+                                    action: function(){
+                                        $.ajax({
+                                               url: "@Url.Action("RemoveUser", "Admins")",
+                                               method: "POST",
+                                               data: { id : id },
+                                               dataType: "json",
+                                               success: function (data){
+                                                   if (data.state){
+                                                       $.alert({
+                                                            title: 'حذف!',
+                                                            content: 'حذف با موفقیت انجام شد.',
+                                                        });
+                                                       table.ajax.reload();
+                                                       }
+                                                   else {
+                                                       alert('Failed:' + data.message);
+                                                   }
+                                               },
+                                               error: function (){
+                                                   alert("Error");
+                                               }
+                                             });
+                                    }
+                                },
+                                cancel: {
+                                    text: 'خیر',
+                                    btnClass: 'btn-blue',
+                                    keys: ['Esc'],
+                                    action: function(){
+                                    }
+                                }
+                            }
+                        });
+    });
+    
+    </script>
+}

@@ -1,0 +1,295 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Test\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\A\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\image\gif2.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\image\presentntion.pptx" />
+      <_ContentIncludedByDefault Remove="wwwroot\image\task-notes-icon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\image\UserDefualt.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\LICENSE" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\dropzone\basic.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\dropzone\dropzone-amd-module.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\dropzone\dropzone.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\dropzone\dropzone.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Bold.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Bold.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Bold.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Bold.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Medium.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Medium.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Medium.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim-Medium.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\Font\Samim\Samim.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\iconic\font\css\open-iconic-bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\iconic\font\fonts\open-iconic.eot" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\iconic\font\fonts\open-iconic.otf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\iconic\font\fonts\open-iconic.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\iconic\font\fonts\open-iconic.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\iconic\font\fonts\open-iconic.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jQuery-confirm\jquery-confirm.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jQuery-confirm\jquery-confirm.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-datatable\datatables.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-datatable\datatables.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-datatable\Persian.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\dist\messages_fa.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\LICENSE.md" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\jquery.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\jquery.min.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
+      <_ContentIncludedByDefault Remove="wwwroot\package-lock.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\package.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\Test\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DNTPersianUtils.Core" Version="5.3.0" />
+      <PackageReference Include="dropzone" Version="4.3.0" />
+      <PackageReference Include="Elmah.Io.AspNetCore" Version="4.0.30" />
+      <PackageReference Include="EPPlus" Version="5.7.2" />
+      <PackageReference Include="EPPlus.Core.Extensions" Version="2.4.0" />
+      <PackageReference Include="jQuery.Validation" Version="1.19.3" />
+      <PackageReference Include="MailKit" Version="2.14.0" />
+      <PackageReference Include="Mapster" Version="7.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.8" />
+      <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+      <PackageReference Include="Microsoft.Data.SqlClient" Version="3.0.0-preview3.21140.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.6" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.6">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
+      <PackageReference Include="Parbad" Version="3.8.0" />
+      <PackageReference Include="Parbad.AspNetCore" Version="1.2.0" />
+      <PackageReference Include="Parbad.Storage.Cache" Version="1.2.0" />
+      <PackageReference Include="RestSharp" Version="106.12.0" />
+      <PackageReference Include="SqlConnection" Version="1.0.4">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
+      <PackageReference Include="System.Collections" Version="4.3.0" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="wwwroot\node_modules\jquery-confirm\.gitattributes" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\.gitattributes" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\.github\ISSUE_TEMPLATE.md" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\animations.html" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\bower.json" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\callback.html" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\css\jquery-confirm.css" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\css\jquery-confirm.less" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\demo.css" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\demo.js" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\bs3.css" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\bundled.css" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\bundled.js" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\fonts\fontawesome-webfont.eot" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\fonts\fontawesome-webfont.svg" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\fonts\fontawesome-webfont.ttf" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\fonts\fontawesome-webfont.woff" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\fonts\fontawesome-webfont.woff2" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\libs\fonts\FontAwesome.otf" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\demo\logo-name.svg" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\dist\jquery-confirm.min.css" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\dist\jquery-confirm.min.js" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\form.html" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\index.html" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\jquery-confirm.png" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\js\jquery-confirm.js" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\LICENSE" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\package.json" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\README.md" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\table.html" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\text.txt" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\themelayout.png" />
+      <Content Include="wwwroot\node_modules\jquery-confirm\themes.html" />
+      <Content Include="wwwroot\node_modules\jquery\AUTHORS.txt" />
+      <Content Include="wwwroot\node_modules\jquery\bower.json" />
+      <Content Include="wwwroot\node_modules\jquery\dist\jquery.js" />
+      <Content Include="wwwroot\node_modules\jquery\dist\jquery.min.js" />
+      <Content Include="wwwroot\node_modules\jquery\dist\jquery.min.map" />
+      <Content Include="wwwroot\node_modules\jquery\dist\jquery.slim.js" />
+      <Content Include="wwwroot\node_modules\jquery\dist\jquery.slim.min.js" />
+      <Content Include="wwwroot\node_modules\jquery\dist\jquery.slim.min.map" />
+      <Content Include="wwwroot\node_modules\jquery\external\sizzle\dist\sizzle.js" />
+      <Content Include="wwwroot\node_modules\jquery\external\sizzle\dist\sizzle.min.js" />
+      <Content Include="wwwroot\node_modules\jquery\external\sizzle\dist\sizzle.min.map" />
+      <Content Include="wwwroot\node_modules\jquery\external\sizzle\LICENSE.txt" />
+      <Content Include="wwwroot\node_modules\jquery\LICENSE.txt" />
+      <Content Include="wwwroot\node_modules\jquery\package.json" />
+      <Content Include="wwwroot\node_modules\jquery\README.md" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax\jsonp.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax\load.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax\script.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax\var\location.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax\var\nonce.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax\var\rquery.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\ajax\xhr.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\attributes.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\attributes\attr.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\attributes\classes.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\attributes\prop.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\attributes\support.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\attributes\val.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\callbacks.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\access.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\camelCase.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\DOMEval.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\init.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\isAttached.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\nodeName.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\parseHTML.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\parseXML.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\ready-no-deferred.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\ready.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\readyException.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\stripAndCollapse.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\support.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\toType.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\core\var\rsingleTag.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\addGetHookIf.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\adjustCSS.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\curCSS.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\finalPropName.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\hiddenVisibleSelectors.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\showHide.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\support.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\var\cssExpand.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\var\getStyles.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\var\isHiddenWithinTree.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\var\rboxStyle.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\var\rnumnonpx.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\css\var\swap.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\data.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\data\Data.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\data\var\acceptData.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\data\var\dataPriv.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\data\var\dataUser.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\deferred.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\deferred\exceptionHook.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\deprecated.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\deprecated\ajax-event-alias.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\deprecated\event.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\dimensions.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\effects.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\effects\animatedSelector.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\effects\Tween.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\event.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\event\focusin.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\event\support.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\event\trigger.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\exports\amd.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\exports\global.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\jquery.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\buildFragment.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\getAll.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\setGlobalEval.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\support.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\var\rscriptType.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\var\rtagName.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\wrapMap.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\manipulation\_evalUrl.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\offset.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\queue.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\queue\delay.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\selector-native.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\selector-sizzle.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\selector.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\serialize.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\traversing.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\traversing\findFilter.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\traversing\var\dir.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\traversing\var\rneedsContext.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\traversing\var\siblings.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\arr.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\class2type.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\document.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\documentElement.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\flat.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\fnToString.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\getProto.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\hasOwn.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\indexOf.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\isFunction.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\isWindow.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\ObjectFunctionString.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\pnum.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\push.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\rcheckableType.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\rcssNum.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\rnothtmlwhite.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\slice.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\support.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\var\toString.js" />
+      <Content Include="wwwroot\node_modules\jquery\src\wrap.js" />
+      <Content Remove="wwwroot\node_modules\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="wwwroot\node_modules\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="wwwroot\node_modules\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="wwwroot\node_modules\**" />
+    </ItemGroup>
+
+</Project>

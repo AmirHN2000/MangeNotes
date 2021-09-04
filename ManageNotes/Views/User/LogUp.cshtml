@@ -1,0 +1,89 @@
+﻿@using ManageNotes.Data
+@model ManageNotes.ViewModel.LogUpModel
+
+@{
+    ViewData["Title"] = "LogUp";
+    if (User.Identity.IsAuthenticated && !User.IsInRole(TypeAccountEnum.Member.GetNumberWithString()))
+    {
+        Layout = "_LayoutAdmins";
+    }
+}
+
+<div>
+    <p class="message col-md-6"></p>
+    <form method="post" id="myform" enctype="multipart/form-data" data-ajax="true" data-ajax-method="post"
+          data-ajax-success="SuccessNew" data-ajax-loading="#logupspinner">
+        <div>
+            <label>نام کاربری</label>
+            <div>
+                <input type="text" class="form-control col-md-3" asp-for="UserName" required>
+            </div>
+        </div>
+        @if (User.Identity.IsAuthenticated && User.IsInRole(TypeAccountEnum.Owner.GetNumberWithString()))
+        {
+            <div>
+                <label>نقش</label>
+                <div>
+                    <select class="custom-select col-md-3" asp-items="@Model.GetItem()" asp-for="Role"></select>
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <label class="label-control">رمز عبور</label>
+            <div>
+                <input type="password" class="form-control col-md-3" minlength="8" asp-for="PassWord" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="label-control">تکرار رمز عبور</label>
+            <div>
+                <input type="password" class="form-control col-md-3" minlength="8" asp-for="RepeatPassWord" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="label-control">تصویر</label>
+            <div>
+                <input type="file" asp-for="File">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2" style="margin-top: 6px">
+                <button type="submit" class="btn btn-primary">ایجاد اکانت</button>
+            </div>
+            <div class="col-md-1">
+                @await Html.PartialAsync("_spinner", "logupspinner")
+            </div>
+        </div>
+        <br>
+        <br>
+    </form>
+
+</div>
+
+@section CSSStyle
+{
+    <link rel="stylesheet" href="~/css/Spinner.css">
+}
+
+@section Scripts{
+      <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+      <script src="~/lib/jquery-validation/dist/messages_fa.min.js"></script>
+      <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+      <script>
+            $("#myform").validate();
+            
+            function SuccessNew(data) {
+                          $(".message").text(data.message);
+                          if (data.status){
+                                $(".message").removeClass("alert alert-danger").addClass("alert alert-success");
+                                }
+                          else {
+                                $(".message").removeClass("alert alert-success").addClass("alert alert-danger");
+                                }
+                        }
+      </script>
+}
+
+
+

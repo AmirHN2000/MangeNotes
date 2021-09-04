@@ -1,0 +1,153 @@
+﻿@using ManageNotes.Data
+@model ManageNotes.ViewModel.EditProfileModel
+
+@{
+      ViewData["Title"] = "Edit Profile";
+      Layout = "_LayoutNotes";
+      if (!User.IsInRole(((int)TypeAccountEnum.Member).ToString()))
+      {
+            Layout = "_LayoutAdmins";
+      }
+}
+
+<div>
+      <p class="message col-md-6"></p>
+      <form method="post" enctype="multipart/form-data" data-ajax="true" data-ajax-method="post" data-ajax-success="SuccessNew"
+            data-ajax-loading="#profilespinner">
+            <input type="hidden" asp-for="Id" name="Id">
+            <div class="row">
+                  <div class="col-md-3">
+                        <div class="form-group">
+                              <label class="label-control">نام کاربری</label>
+                              <div>
+                                    <input type="text" class="form-control" asp-for="UserName" name="UserName">
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-md-7"></div>
+                  <div class="col-md-2">
+                        <button data-id="@Model.Id" type="button" class="btn btn-danger" id="btndelete">
+                              <span class="oi oi-trash"></span> حذف حساب کاربری</button>
+                  </div>
+            </div>
+            <br>
+
+            @if (User.Identity.IsAuthenticated && User.IsInRole(TypeAccountEnum.Owner.GetNumberWithString()) && @Model.Check != -1)
+            {
+                  <div class="col-md-3">
+                        <select class="custom-select" asp-for="Role" asp-items="@Model.GetItem()"></select>
+                  </div>
+                  <br>
+            }
+
+            <div class="row">
+                  <div class="col-md-3">
+                        <div class="form-group">
+                              <a asp-controller="User" asp-action="ChangePassword" asp-route-id="@Model.Id"
+                                 id="alink">تغییر رمز عبور</a>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                              <label class="label-control">تغییر عکس حساب کاربری</label>
+                              <div>
+                                    <input type="file" asp-for="File" name="File">
+                              </div>
+                        </div>
+                  </div>
+                  <div class="offset-md-7"></div>
+                  <div class="col-md-2">
+                        <div>
+                              <a href="@Url.Action("Showimage", "User", new {id = @Model.Id})">
+                                    <img src="@Url.Action("Showimage", "User", new {id = @Model.Id})"
+                                         width="100px" height="100px">
+                              </a>
+                        </div>
+                  </div>
+            </div>
+            <br>
+            <div class="row">
+                  <div class="col-md-2" style="margin-top: 6px">
+                        <button class="btn btn-primary" type="submit"  >اعمال تغییرات</button>
+                  </div>
+                  <div class="col-md-1">
+                        @await Html.PartialAsync("_spinner", "profilespinner")
+                  </div>
+            </div>
+      </form>
+</div>
+
+@section CSSStyle
+{
+      <style>
+            #alink:hover{
+            color: tomato !important;
+            text-decoration-line: none !important;
+            }
+      </style>
+      <link rel="stylesheet" href="~/lib/jQuery-confirm/jquery-confirm.min.css">
+      <link rel="stylesheet" href="~/css/Spinner.css">
+}
+@section Scripts
+{
+      <script src="~/lib/jQuery-confirm/jquery-confirm.min.js"></script>
+      <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+      <script type="text/javascript">
+      $("#btndelete").on('click',function (){
+            var id=$(this).data("id");
+            
+            $.confirm({
+                    title: 'حذف حساب کاربری',
+                    content: 'آیا از حذف حساب کاربری مطمئن هستید؟',
+                    type: 'red',
+                    typeAnimated: true,
+                    buttons: {
+                        confirm: {
+                            text: 'بله',
+                            btnClass: 'btn-red',
+                            keys: ['enter', 'shift'],
+                            action: function(){
+                                $.ajax({
+                                       url: "@Url.Action("DeleteAccount", "User")",
+                                       method: 'POST',
+                                       data: { id : id },
+                                       dataType: 'json',
+                                       success: function (data){
+                                           if (data.state){
+                                               $.alert({
+                                                    title: 'حذف!',
+                                                    content: 'حذف با موفقیت انجام شد.',
+                                                });
+                                               window.location.href='@Url.Action("Index", "Home")';
+                                               }
+                                           else {
+                                               alert('Failed:' + data.message);
+                                           }
+                                       },
+                                       error: function (){
+                                             alert('Error');
+                                             }
+                                     });
+                            }
+                        },
+                        cancel: {
+                            text: 'خیر',
+                            btnClass: 'btn-blue',
+                            keys: ['Esc'],
+                            action: function(){
+                            }
+                        }
+                    }
+                });
+      });
+      
+      function SuccessNew(data) {
+                        $(".message").text(data.message);
+                        if (data.status){
+                              $(".message").removeClass("alert alert-danger").addClass("alert alert-success");
+                              }
+                        else {
+                              $(".message").removeClass("alert alert-success").addClass("alert alert-danger");
+                              }
+                      }
+      </script>
+}

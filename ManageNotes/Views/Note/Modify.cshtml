@@ -1,0 +1,67 @@
+﻿@using ManageNotes.Data
+@model ManageNotes.ViewModel.ModifywModel
+@{
+    ViewData["Title"] = "Modify Note";
+    Layout = "_LayoutNotes";
+    if (!User.IsInRole(((int)TypeAccountEnum.Member).ToString()))
+    {
+        Layout = "_LayoutAdmins";
+    }
+}
+
+<div dir="rtl">
+    <p class="message col-md-6"></p>
+    <form method="post" id="myform" style="text-align: right" data-ajax="true" data-ajax-method="post" data-ajax-success="SuccessNew"
+          data-ajax-loading="#modifyspinner">
+        <input type="hidden" asp-for="Id" name="Id">
+        <div class="form-group">
+            <label class="label-control col-md-3">عنوان</label>
+            <div>
+                <input class="form-control" type="text" asp-for="Title" name="Title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="label-control col-md-3">متن یادداشت</label>
+            <div>
+                <textarea class="form-control" id="mainnote" rows = "10" 
+                                    cols = "100" asp-for="MineNote" name = "MineNote"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1" style="margin-top: 6px">
+                <button class="btn btn-primary" type="submit"  >ذخیره</button>
+            </div>
+            <div class="col-md-1">
+                @await Html.PartialAsync("_spinner", "modifyspinner")
+            </div>
+        </div>
+    </form>
+</div>
+
+@section CSSStyle
+{
+    <link rel="stylesheet" href="~/css/Spinner.css">
+}
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/messages_fa.min.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+    <script>
+    
+    $("#myform").validate();
+    
+    function SuccessNew(data) {
+                  $(".message").text(data.message);
+                  if (data.status){
+                        $(".message").removeClass("alert alert-danger").addClass("alert alert-success");
+                        }
+                  else {
+                        $(".message").removeClass("alert alert-success").addClass("alert alert-danger");
+                        }
+                }
+      </script>
+}
+

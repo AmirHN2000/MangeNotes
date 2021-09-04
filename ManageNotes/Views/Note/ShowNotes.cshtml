@@ -1,0 +1,154 @@
+﻿@using ManageNotes.Data
+@{
+    ViewData["Title"] = "Show Notes";
+    Layout = "_LayoutNotes";
+    if (!User.IsInRole(((int)TypeAccountEnum.Member).ToString()))
+    {
+        Layout = "_LayoutAdmins";
+    }
+}
+
+<div id="mydiv">
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <a class="btn btn-success" asp-controller="Note" asp-action="ExportNotes" target="_blank">
+                <span class="oi oi-data-transfer-download"></span>  دریافت فایل یادداشت ها</a>
+        </div>
+    </div>
+    <table id="mytable" class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th>شماره</th>
+            <th>عنوان</th>
+            <th>عملیات</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">نمایش یادداشت</h5>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+@section CSSStyle{
+    <link rel="stylesheet" href="~/lib/jquery-datatable/datatables.min.css">
+    <link rel="stylesheet" href="~/lib/jQuery-confirm/jquery-confirm.min.css">
+}
+@section Scripts
+{
+    <script src="~/lib/jquery-datatable/datatables.min.js"></script>
+    <script src="~/lib/jQuery-confirm/jquery-confirm.min.js"></script>
+    <script>
+            var table=$('#mytable').DataTable( {
+                    "responsive": true,
+                    "processing": true,
+                    "serverSide": true,
+                    "orderMulti": false,
+                    "searching": true,
+                    "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                    "ajax": {
+                         "url": "@Url.Action("GetNotes", "Note")",
+                         "type": "Get",
+                         "dataType": "json"
+                     },
+                    "columns":[
+                         {"data": "number"},
+                         {"data": "title"},
+                         {"data": "noteId",
+                         render:function (data,type,row){
+                             return `
+                             <button data-id="${data}" class="btn btn-primary btn-show"><span class="oi oi-eye"></span>  نمایش</button>
+                             <a href='@Url.Action("Modify", "Note")/${data}' class="btn btn-warning"><span class="oi oi-pencil"></span>  ویرایش</a>
+                             <button data-id="${data}" class="btn btn-danger btn-delete"><span class="oi oi-trash"></span>  حذف</button>
+                             `;
+                             }
+                         }
+                         ] ,
+                    "language": {
+                            "url": "/lib/jquery-datatable/Persian.json"
+                        }
+                } );
+            
+            $("#mydiv").on('click',".btn-delete",function (){
+                var id=$(this).data("id");
+                
+                $.confirm({
+                    title: 'حذف یادداشت',
+                    content: 'آیا از حذف یادداشت مطمئن هستید؟',
+                    type: 'red',
+                    typeAnimated: true,
+                    buttons: {
+                        confirm: {
+                            text: 'بله',
+                            btnClass: 'btn-red',
+                            keys: ['enter', 'shift'],
+                            action: function(){
+                                $.ajax({
+                                       url: "@Url.Action("Remove", "Note")",
+                                       method: "POST",
+                                       data: { id : id },
+                                       dataType: "json",
+                                       success: function (data){
+                                           if (data.state){
+                                               $.alert({
+                                                    title: 'حذف!',
+                                                    content: 'حذف با موفقیت انجام شد.',
+                                                });
+                                               table.ajax.reload();
+                                               }
+                                           else {
+                                               alert('Failed:' + data.message);
+                                           }
+                                       },
+                                       error: function (){
+                                           alert("Error");
+                                       }
+                                     });
+                            }
+                        },
+                        cancel: {
+                            text: 'خیر',
+                            btnClass: 'btn-blue',
+                            keys: ['Esc'],
+                            action: function(){
+                            }
+                        }
+                    }
+                });
+        
+            });
+            
+            $("#mydiv").on('click',".btn-show",function (){
+                var noteId=$(this).data("id");
+                
+                $.ajax({
+                      url: '@Url.Action("ShowNote", "Note")',
+                      method: 'POST',
+                      data: {id:noteId},
+                      success:function(data) {
+                        $(".modal-body").empty().append(data);
+                        var modal=new bootstrap.Modal(document.getElementById('mymodal'),{});
+                        modal.show();
+                      }
+                      });
+                });
+            
+        </script>
+}

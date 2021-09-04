@@ -1,0 +1,27 @@
+﻿@using ManageNotes.Utils
+
+@{
+    ViewData["Title"] = "Note Page";
+    Layout = "_LayoutNotes";
+}
+
+<div class="text-center">
+    <p>Add, update and visit your notes</p>
+    <br>
+    
+    <div class="jumbotron">
+        @await Component.InvokeAsync("Credit", new{userId=User.GetId()})
+        <br>
+        <form method="post" asp-controller="Payment" asp-action="Pay">
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <input name="amount" class="form-control" type="text" placeholder="مبلغ">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary btn-block">پرداخت</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>

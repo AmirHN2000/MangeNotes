@@ -1,0 +1,51 @@
+﻿@model ManageNotes.ViewModel.LogInModel
+
+@{
+      ViewData["Title"] = "LogIn";
+}
+
+<div>
+      <form method="post" id="myform">
+            <div class="text-danger" asp-validation-summary="None"></div>
+            <div class="form-group">
+                  <label class="label-control">نام کاربری</label>
+                  <div>
+                        <input type="text" class="form-control col-md-3" asp-for="UserName" required>
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                  </div>
+            </div>
+            <div class="form-group">
+                  <label class="label-control">رمز عبور</label>
+                  <div>
+                        <input type="password" class="form-control col-md-3" minlength="8" asp-for="PassWord" required>
+                        <span class="text-danger" asp-validation-for="PassWord"></span>
+                  </div>
+            </div>
+            <button type="submit" class="btn btn-primary">ورود</button>
+            <br>
+            <br>
+            <a id="mylink" href="@Url.Action("LogUp","User")">آیا حساب کاربری ندارید؟</a>
+            <br>
+            <br>
+            <span class="text-danger" asp-validation-for="State"></span>
+      </form>
+</div>
+
+@section Scripts{
+      <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+      <script src="~/lib/jquery-validation/dist/messages_fa.min.js"></script>
+      <script>
+      $("#myform").validate();
+      </script>
+}
+@section CSSStyle
+{
+      <style>
+            #mylink:hover{
+            color: tomato;
+            }
+            #mylink{
+            text-decoration-line: none;
+            }
+      </style>
+}
