@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "G:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj": {}
+    "D:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj": {}
   },
   "projects": {
-    "G:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj": {
+    "D:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj",
+        "projectUniqueName": "D:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj",
         "projectName": "ManageNotes",
-        "projectPath": "G:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "G:\\asp .net project\\ManageNotes\\ManageNotes\\obj\\",
+        "projectPath": "D:\\asp .net project\\ManageNotes\\ManageNotes\\ManageNotes.csproj",
+        "packagesPath": "C:\\Users\\Amir\\.nuget\\packages\\",
+        "outputPath": "D:\\asp .net project\\ManageNotes\\ManageNotes\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Amir\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -167,7 +161,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

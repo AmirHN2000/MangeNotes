@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "file:node_modules/jquery",
-    "jquery-confirm": "^3.3.4"
+    "jquery-ajax-unobtrusive": "^3.2.6",
+    "jquery-confirm": "^3.3.4",
+    "jstree": "^3.3.12"
   }
 }

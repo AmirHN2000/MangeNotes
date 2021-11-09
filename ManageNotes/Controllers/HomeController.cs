@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using MailKit.Net.Smtp;
 using ManageNotes.Data;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MimeKit;
 using MimeKit.Text;
 using ManageNotes.Attributes;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Newtonsoft.Json;
 
 namespace ManageNotes.Controllers
 {
@@ -17,7 +20,23 @@ namespace ManageNotes.Controllers
         //[TypeFilter(typeof(LogAttribute))]
         public IActionResult Index()
         {
+            var list = new List<TestTree>();
+            list.Add(new TestTree(){id ="1", parent = "#", text = "folder 1"});
+            list.Add(new TestTree(){id ="2", parent = "#", text = "folder 2"});
+            list.Add(new TestTree(){id ="3", parent = "#", text = "folder 3"});
+            list.Add(new TestTree(){id ="4", parent = "1", text = "item 1-1"});
+            list.Add(new TestTree(){id ="5", parent = "1", text = "item 1-2"});
+            list.Add(new TestTree(){id ="6", parent = "2", text = "item 2-1"});
+            list.Add(new TestTree(){id ="7", parent = "3", text = "item 3-1"});
+            list.Add(new TestTree(){id ="8", parent = "3", text = "item 3-1"});
+            ViewBag.json = JsonConvert.SerializeObject(list);
             return View();
+        }
+        private class TestTree
+        {
+            public string id { get; set; }
+            public string parent { get; set; }
+            public string text { get; set; }
         }
 
         public IActionResult Privacy()
